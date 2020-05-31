@@ -6,8 +6,6 @@
   $query    = mysqli_query($conn, $sql)or die(mysqli_error());
   $data     = mysqli_fetch_array($query);
 
-
-
   if(isset($_GET['content'])) $content = $_GET['content']; 
   else $content = "index";
 ?>
@@ -64,30 +62,30 @@
             </a>
           </li>
           <li class="nav-item ">
+            <a class="nav-link" href="index.php?content=mapel">
+              <i class="material-icons">library_books</i>
+              <p> Mata Pelajaran </p>
+            </a>
+          <!-- <li class="nav-item ">
             <a class="nav-link" href="index.php?content=kelas">
               <i class="material-icons">library_books</i>
               <p> Management Kelas </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=pembayaran">
-              <i class="material-icons">bubble_chart</i>
-              <p> Pembayaran </p>
-            </a>
-            <li class="nav-item ">
             <a class="nav-link" href="index.php?content=siswa">
               <i class="material-icons">person</i>
               <p> Management Siswa </p>
             </a>
             <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=mapel">
-              <i class="material-icons">library_books</i>
-              <p> Mata Pelajaran </p>
-            </a> 
-            <li class="nav-item ">
             <a class="nav-link" href="index.php?content=wali">
               <i class="material-icons">person</i>
               <p> Management Wali Kelas </p>
+            </a>
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php?content=pembayaran">
+              <i class="material-icons">bubble_chart</i>
+              <p> Pembayaran </p>
             </a>
         </ul>
       </div>

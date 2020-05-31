@@ -37,28 +37,61 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                        <label class="bmd-label-floating">Jenis-Matapelajaran</label>
-                          <select class="form-control"  name="jenis_pelajaran" required>
-                            <option>Mapel-Wajib Jurusan</option>
-                            <option>Mapel-Umum</option>
-                            </select>
-                        </div>   
-                        </div>
-                    </div>
-                      <!-- <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pendidikan Terakhir</label>
-                          <input type="text" class="form-control" name="pendidikan_terakhir" required>
+                          <label class="bmd-label-floating">Nama Guru</label>
+                          <select class="form-control" name="id_staf" aria-describedby="basic-addon1" required>
+                          <?php
+                    include 'koneksi.php';
+                    $stf = "SELECT * FROM staf_sekolah";
+                    $querystf = mysqli_query($conn,$stf);
+                    while ($dt = mysqli_fetch_array($querystf)) { ?>
+                    <option value="<?php echo $dt['id_staf'] ?>"> <?php echo $dt['nama_staf'] ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
+                  </select>
                         </div>
                       </div>
-                    </div>                -->
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">Jenis-Matapelajaran</label>
+                          <select class="form-control"  name="jenis_pelajaran" required>
+                            <option>Wajib Jurusan</option>
+                            <option>Umum</option>
+                            </select>
+                        </div>   
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">Jurusan</label>
+                          <select class="form-control"  name="jurusan" required>
+                            <option>Teknik Komputer Jaringan</option>
+                            <option>Teknik Kendaraan Ringan</option>
+                            <option>Teknik Elektro</option>
+                            <option>Teknik Sepeda Motor</option>
+                            <option>Teknik Broadcasting </option>
+                          </select>
+                        </div>   
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">Tingkat</label>
+                          <select class="form-control"  name="tingkat" required>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            </select>
+                        </div>   
+                      </div>
+                    </div>
                     <button type="submit" name="simpan" class="btn btn-primary pull-right">Tambah Mapel </button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
-            </div>
-            
+            </div>     
     </div>
   </div>
 

@@ -24,14 +24,18 @@
                         <th>No</th>
                         <th>ID-Mapel</th>
                         <th>Nama-Mapel</th>
-                        <th>Jenis-Mapel</th>
+                        <th>Guru</th>
+                        <th>Jenis</th>
+                        <th>Jurusan</th>
+                        <th>Tingkat</th>
                         <th>Opsi</th>
                       </thead>
                       <tbody>
                         <?php
                             include 'koneksi.php';
                             $no = 1;
-                            $select = mysqli_query($conn, "SELECT * FROM mata_pelajaran");
+                            $select = mysqli_query($conn, "SELECT a.*, b.id_staf, b.nama_staf FROM mata_pelajaran a 
+                            INNER JOIN staf_sekolah b ON a.id_staf=b.id_staf");
                             while($hasil = mysqli_fetch_array($select)){
                         ?>
                         <tr>
@@ -45,7 +49,17 @@
                             <?php echo $hasil['nama_pelajaran'] ?>
                         </td>
                         <td>
+                            <?php echo $hasil['nama_staf'] ?>
+                        </td>
+                        
+                        <td>
                             <?php echo $hasil['jenis_pelajaran'] ?>
+                        </td>
+                        <td>
+                            <?php echo $hasil['jurusan'] ?>
+                        </td>
+                        <td>
+                            <?php echo $hasil['tingkat'] ?>
                         </td>
                         <td>
                             <a href="edit-mapel.php?id_mapel=<?php echo $hasil['id_mapel'] ?>" class="badge badge-success"> Edit </a>

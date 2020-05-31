@@ -61,8 +61,12 @@ if($cek > 0){
 	// cek jika user login sebagai pengurus
 	}else if($data['level']=="Walikelas"){
 		// buat session login dan username
-		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "Walikelas";
+		
+		$_SESSION['id_user'] 	= $id_user;
+		$_SESSION['username'] 	= $username;
+		$_SESSION['password'] 	= $password;
+		$_SESSION['id_staf'] 	= $id_staf;
+		$_SESSION['level'] 		= $level;
 		// alihkan ke halaman dashboard pengurus
 		header("location:../walikelas/index.php");
 		// echo "Anda login sebagai walikelas";
@@ -70,8 +74,12 @@ if($cek > 0){
 	// cek jika user login sebagai pengurus
 	}else if($data['level']=="Kepala_Sekolah"){
 		// buat session login dan username
-		$_SESSION['username'] = $username;
-		$_SESSION['level'] = "Kepala_Sekolah";
+		
+		$_SESSION['id_user'] 	= $id_user;
+		$_SESSION['username'] 	= $username;
+		$_SESSION['password'] 	= $password;
+		$_SESSION['id_staf'] 	= $id_staf;
+		$_SESSION['level'] 		= $level;
 		// alihkan ke halaman dashboard pengurus
 		header("location:../kepalasekolah/index.php");
 		// echo "Anda login sebagai Kepala_Sekolah";

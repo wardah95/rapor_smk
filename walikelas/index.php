@@ -1,4 +1,11 @@
 <?php
+  include '../config/koneksi.php';
+  session_start();
+  $id_staf  = $_SESSION['id_staf'];
+  $sql      = "SELECT a.*, b.* FROM user a INNER join staf_sekolah b ON a.id_staf = b.id_staf WHERE a.id_staf=$id_staf ";
+  $query    = mysqli_query($conn, $sql)or die(mysqli_error());
+  $data     = mysqli_fetch_array($query);
+  
   if(isset($_GET['content'])) $content = $_GET['content']; 
   else $content = "index";
 ?>
@@ -32,7 +39,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Selamat Datang Walikelas
+         Selamat Datang <br> <?= $data['nama_staf']?>
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -43,7 +50,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=staff">
+            <a class="nav-link" href="index.php?content=list_siswa">
               <i class="material-icons">person</i>
               <p> Data Nama Kelas </p>
             </a>
@@ -160,12 +167,13 @@
                                 <?php
                                 if ($content=='dashboard')
                                     include 'dashboard.php';
+                                if ($content=='list_siswa')
+                                    include 'list_siswa.php';
                                 if ($content=='nilai')
                                     include 'nilai_siswa.php';
-                                if ($content=='pembayaran')
-                                    include 'uspembayaran_siswa.php';
-                                // if ($content=='kelas')
-                                //     include 'kelas.php';
+                                if ($content=='detail_siswa')
+                                    include 'detail_siswa.php';
+                                
                                 // if ($content=='pembayaran')
                                 //     include 'pembayaran.php';
                                 // if ($content=='siswa')
