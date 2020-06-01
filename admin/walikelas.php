@@ -6,7 +6,7 @@
     <title>Halaman Data Siswa</title>
 </head>
 <body>
-    
+     
 <a class="btn btn-success" href="input-walikelas.php"> Tambah Data Walikelas </a>
 
 <div class="content">
@@ -25,14 +25,15 @@
                         <th>Nama Walikelas</th>
                         <th>Jurusan</th>
                         <th>Nama Kelas</th>
-                        <th>Opsi</th>
+                        <th>Aksi</th>
                       </thead>
                       <tbody>
                         <?php
                             include 'koneksi.php';
                             $no = 1;
-                            $select = mysqli_query($conn, "SELECT a.*, b.* FROM walikelas a
-                            JOIN staf_sekolah b on a.id_staf =b.id_staf");
+                            $select = mysqli_query($conn, "SELECT a.* ,b.* FROM walikelas a
+                            JOIN staf_sekolah b on a.id_staf =b.id_staf
+                            Group by a. Id_staf, a. Jurusan, a.nama_kelas");
                             while($hasil = mysqli_fetch_array($select)){
                         ?>
                         <tr>
@@ -50,7 +51,8 @@
                         </td>
                         <td>
                             <a href="index.php?content=detail-kelas&&id_staf=<?=$hasil['id_staf']?>&&jurusan=<?=$hasil['jurusan']?>&&nama_kelas=<?=$hasil['nama_kelas']?>" class="badge badge-success"> Detail </a>
-                            <!-- <a href="../config/hapus-walikelas.php?id_walikelas=<?php echo $hasil['id_walikelas'] ?> " class="badge badge-danger"> Hapus </a> -->
+                            <a href="../config/hapus-walikelas.php?id_staf=<?=$hasil['id_staf']?>&&jurusan=<?=$hasil['jurusan']?>&&nama_kelas=<?=$hasil['nama_kelas']?>" class="badge badge-danger"> Hapus </a>
+            
                         </td>
                         <?php } ?>
                         </tr>                        

@@ -44,8 +44,8 @@
                             <?= $hasil['nama_lengkap'] ?>
                         </td>
                         <td>
-                            <!-- <a href="edit-siswa.php?id_siswa=<?php echo $hasil['id_siswa'] ?>" class="badge badge-success"> Edit </a>
-                            <a href="../config/hapus_siswa.php?id_siswa=<?php echo $hasil['id_siswa'] ?> " class="badge badge-danger"> Hapus </a> -->
+                            <!-- <a href="edit-siswa.php?id_siswa=<?php echo $hasil['id_siswa'] ?>" class="badge badge-success"> Edit </a> -->
+                            <a href="../config/hapus_det_siswa.php?id_staf=<?=$hasil['id_staf']?>&&jurusan=<?=$hasil['jurusan']?>&&nama_kelas=<?=$hasil['nama_kelas']?>&&id_siswa=<?=$hasil['id_siswa']?> " class="badge badge-danger"> Hapus </a>
                         </td>
                         <?php } ?>
                         </tr>                        
