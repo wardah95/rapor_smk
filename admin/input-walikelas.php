@@ -48,23 +48,17 @@
                       </div> 
                       <div class="col-md-6">
                         <div class="form-group">  
-                        <label class="bmd-label-floating">Jurusan</label>
-                          <select class="form-control" name="id_kelas" aria-describedby="basic-addon1" required>
-                          <?php
-                    include 'koneksi.php';
-                    $stf = "SELECT * FROM kelas";
-                    $querystf = mysqli_query($conn,$stf);
-                    while ($dt = mysqli_fetch_array($querystf)) { ?>
-                    <option value="<?php echo $dt['id_kelas'] ?>"> <?php echo $dt['jurusan'] ?>
-                    </option>
-                    <?php
-                    }
-                    ?>
-                  </select>
-                    </div>
-                    </div>
-                    </div>
-
+                        <label class="bmd-label-floating">Jurusan </label>
+                          <select class="form-control" name="jurusan" aria-describedby="basic-addon1" required>
+                          <option>Teknik Komputer Jaringan</option>
+                            <option>Teknik Kendaraan Ringan</option>
+                            <option>Teknik Elektro</option>
+                            <option>Teknik Sepeda Motor</option>
+                            <option>Teknik Broadcasting </option>
+                          </select>
+                        </div>
+                      </div>
+                      </div>
                     <div class="row">
                      <div class="col-md-6">
                     <div class="form-group">  
@@ -86,24 +80,16 @@
                       <div class="col-md-6">
                         <div class="form-group">
                         <label class="bmd-label-floating">Nama Kelas </label>
-                        <input type="text" class="form-control" name="namakelas" required>
+                        <input type="text" class="form-control" name="nama_kelas" required>
                         </div>   
                         </div>
-                        </div>
-                      <!-- <div class="col-md-6">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">Pendidikan Terakhir</label>
-                          <input type="text" class="form-control" name="pendidikan_terakhir" required>
-                        </div>
-                      </div>
-                    </div>                -->
+                        </div>          
                     <button type="submit" name="simpan" class="btn btn-primary pull-right">Tambah WaliKelas </button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
               </div>
-            </div>
-            
+            </div>     
     </div>
   </div>
 

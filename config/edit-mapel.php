@@ -4,13 +4,15 @@ include "koneksi.php";
  
 // menangkap data yang di kirim dari form
 $id_mapel           = $_POST['id_mapel'];
+$id_staf           	= $_POST['id_staf'];
 $nama_pelajaran     = $_POST['nama_pelajaran'];
 $jenis_pelajaran    = $_POST['jenis_pelajaran'];
-
+$jurusan			= $_POST['jurusan'];
+$tingkat	     	= $_POST['tingkat'];
  
 // menginput data ke database
 
-$update         =   "UPDATE mata_pelajaran SET id_mapel='$id_mapel', nama_pelajaran='$nama_pelajaran', jenis_pelajaran='$jenis_pelajaran' where 
+$update         =   "UPDATE mata_pelajaran SET id_mapel='$id_mapel', id_staf='$id_staf', nama_pelajaran='$nama_pelajaran', jenis_pelajaran='$jenis_pelajaran', jurusan='$jurusan', tingkat='$tingkat' where 
 id_mapel='$id_mapel'";
 
 $updatemapel	    = mysqli_query($conn, $update)or die(mysqli_error());

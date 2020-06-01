@@ -37,7 +37,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Nama Guru</label>
+                          <label class="bmd-label-floating">Nama Pengajar</label>
                           <select class="form-control" name="id_staf" aria-describedby="basic-addon1" required>
                           <?php
                     include 'koneksi.php';

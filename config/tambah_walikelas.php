@@ -6,12 +6,12 @@ include "koneksi.php";
 
 
 $id_staf        = $_POST['id_staf'];
-$id_kelas       = $_POST['id_kelas'];
 $id_siswa       = $_POST['id_siswa'];
-$nama_kelas     = $_POST['namakelas'];
+$jurusan        = $_POST['jurusan'];
+$nama_kelas      = $_POST['nama_kelas'];
 
 // menginput data ke database
-mysqli_query($conn,"INSERT INTO walikelas VALUES('','$id_staf','$id_kelas','$id_siswa','$nama_kelas')");
+mysqli_query($conn,"INSERT INTO walikelas VALUES('','$id_staf','$id_siswa','$jurusan','$nama_kelas')");
 
 header("location: ../admin/index.php?content=wali");
 ?>

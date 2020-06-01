@@ -24,7 +24,6 @@
                         <th>No</th>
                         <th>Nama Walikelas</th>
                         <th>Jurusan</th>
-                        <th>Nama Siswa</th>
                         <th>Nama Kelas</th>
                         <th>Opsi</th>
                       </thead>
@@ -32,7 +31,8 @@
                         <?php
                             include 'koneksi.php';
                             $no = 1;
-                            $select = mysqli_query($conn, "SELECT a.*, b.*,c.*,d.* FROM walikelas a JOIN staf_sekolah b on a.id_staf =b.id_staf JOIN kelas c on a.id_kelas =c.id_kelas JOIN siswa d on a.id_siswa =d.id_siswa");
+                            $select = mysqli_query($conn, "SELECT a.*, b.* FROM walikelas a
+                            JOIN staf_sekolah b on a.id_staf =b.id_staf");
                             while($hasil = mysqli_fetch_array($select)){
                         ?>
                         <tr>
@@ -46,14 +46,11 @@
                             <?php echo $hasil['jurusan'] ?>
                         </td>
                         <td>
-                            <?php echo $hasil['nama_lengkap'] ?>
-                        </td>
-                        <td>
                             <?php echo $hasil['nama_kelas'] ?>
                         </td>
                         <td>
-                            <a href="edit-kelas.php?id_kelas=<?php echo $hasil['id_kelas'] ?>" class="badge badge-success"> Edit </a>
-                            <a href="../config/hapus-walikelas.php?id_walikelas=<?php echo $hasil['id_walikelas'] ?> " class="badge badge-danger"> Hapus </a>
+                            <a href="index.php?content=detail-kelas&&id_staf=<?=$hasil['id_staf']?>&&jurusan=<?=$hasil['jurusan']?>&&nama_kelas=<?=$hasil['nama_kelas']?>" class="badge badge-success"> Detail </a>
+                            <!-- <a href="../config/hapus-walikelas.php?id_walikelas=<?php echo $hasil['id_walikelas'] ?> " class="badge badge-danger"> Hapus </a> -->
                         </td>
                         <?php } ?>
                         </tr>                        

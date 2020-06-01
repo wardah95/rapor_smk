@@ -31,47 +31,72 @@
                 <?php
                 include 'koneksi.php';
                 $id_mapel = (isset($_GET['id_mapel']) ? $_GET['id_mapel'] : '');
-                $data = mysqli_query($conn,"select * from mata_pelajaran where id_mapel='$id_mapel'");
+                $data = mysqli_query($conn,"select a.*, b.id_staf, b.nama_staf from mata_pelajaran a INNER JOIN
+                staf_sekolah b on a.id_staf= b.id_staf
+                WHERE a.id_mapel='$id_mapel'");
                 while($d = mysqli_fetch_array($data)){
                     ?>
                   <form action="../config/edit-mapel.php" method="POST">
                       <div class="row">
+                      
+                      <input name="id_mapel" type="hidden" value="<?php echo $d['id_mapel']; ?>">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">ID-Mapel</label>
-                          <!-- <input name="id_mapel" type="hidden" value="<?php echo $d['id_mapel']; ?>"> -->
-                          <br>
-                          <input type="text" class="form-control" name="id_mapel" value="<?php echo $d['id_mapel']; ?>" required>
+                          <label class="bmd-label-floating">Nama Pelajaran</label>
+                          <input type="text" class="form-control" name="nama_pelajaran" value="<?= $d['nama_pelajaran']; ?>" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Nama-Matapelajaran</label>
-                          <input type="text" class="form-control" name="nama_pelajaran" value="<?php echo $d['nama_pelajaran']; ?>" required>
-                        </div>
+                          <label class="bmd-label-floating">Nama Pengajar</label>
+                          <select class="form-control" name="id_staf" aria-describedby="basic-addon1" required>
+                          <?php
+                    include 'koneksi.php';
+                    $stf = "SELECT * FROM staf_sekolah";
+                    $querystf = mysqli_query($conn,$stf);
+                    while ($dt = mysqli_fetch_array($querystf)) { ?>
+                    <option value="<?php echo $dt['id_staf'] ?>"> <?php echo $dt['nama_staf'] ?>
+                    </option>
+                    <?php
+                    }
+                    ?>
+                  </select>
+                  </div>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group">
                         <label class="bmd-label-floating">Jenis-Matapelajaran</label>
-                          <select class="form-control"  name="jenis_pelajaran" value="<?php echo $d['jenis_pelajaran']; ?>" required>
+                          <select class="form-control"  name="jenis_pelajaran" value="<?= $d['jenis_pelajaran']; ?>" required>
                             <option>Mapel-Wajib Jurusan</option>
                             <option>Mapel-Umum</option>
                             </select>
                         </div>   
-                        </div>
-                        </div>
-                      <!-- <div class="col-md-6">
+                      </div>
+                      <div class="col-md-4">
                         <div class="form-group">
-                          <label class="bmd-label-floating">Jabatan</label>
-                          <select class="form-control" name="jabatan" value="" required>
-                                        <option>Admin</option>
-                                        <option>Kepala Sekolah</option>
-                                        <option>Guru</option>
-                                        </select>
-                        </div>
-                      </div> -->
+                        <label class="bmd-label-floating">Jurusan</label>
+                          <select class="form-control"  name="jurusan" value="<?= $d['jurusan']; ?>" required>
+                            <option>Teknik Komputer Jaringan</option>
+                            <option>Teknik Kendaraan Ringan</option>
+                            <option>Teknik Elektro</option>
+                            <option>Teknik Sepeda Motor</option>
+                            <option>Teknik Broadcasting </option>
+                            </select>
+                        </div>   
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                        <label class="bmd-label-floating">Tingkat</label>
+                          <select class="form-control"  name="tingkat" value="<?= $d['tingkat']; ?>" required>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            </select>
+                        </div>   
+                      </div>
+                    </div>
                     </div>                
                     <button type="submit" name="simpan" class="btn btn-primary pull-right">Edit Data Staff</button>
                     <div class="clearfix"></div>

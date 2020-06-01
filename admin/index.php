@@ -181,6 +181,8 @@
                                    include 'mapel.php';
                                 if ($content=='wali')
                                    include 'walikelas.php';
+                                if ($content=='detail-kelas')
+                                   include 'detail-kelas.php';
                                 if ($content=='rincian')
                                 include 'rincian.php';
                               
