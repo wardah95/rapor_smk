@@ -24,6 +24,7 @@
                       </thead>
                       <tbody>
                         <?php
+                          include '../config/koneksi.php';
                             $no = 1;
                             $select = mysqli_query($conn, "SELECT a.*, b.* FROM walikelas a 
                             INNER join siswa b on a.id_siswa= b.id_siswa

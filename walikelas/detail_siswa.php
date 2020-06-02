@@ -1,7 +1,5 @@
 <?php
-
     // error_reporting(0);
-
     include '../config/koneksi.php';
     $id_siswa = $_GET['id_siswa'];
 

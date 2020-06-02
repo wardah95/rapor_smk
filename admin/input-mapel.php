@@ -58,8 +58,11 @@
                         <div class="form-group">
                         <label class="bmd-label-floating">Jenis-Matapelajaran</label>
                           <select class="form-control"  name="jenis_pelajaran" required>
-                            <option>Wajib Jurusan</option>
-                            <option>Umum</option>
+                            <option value='A' >Muatan Nasional</option>
+                            <option value='B' >Muatan Kewilayahan</option>
+                            <option value='C1'>Muatan Permintaan Kejuruan-Dasar Bidang Keahlian</option>
+                            <option value='C2'>Muatan Permintaan Kejuruan-Dasar Program Keahlian</option>
+                            <option value='D' >Muatan Lokal </option>
                             </select>
                         </div>   
                       </div>
