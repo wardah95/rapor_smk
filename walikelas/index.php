@@ -52,13 +52,31 @@
           <li class="nav-item ">
             <a class="nav-link" href="index.php?content=list_siswa">
               <i class="material-icons">person</i>
-              <p> Data Nama Kelas </p>
+              <p> Data Siswa </p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=user">
+            <a class="nav-link" href="index.php?content=nilai_siswa">
               <i class="material-icons">content_paste</i>
-              <p> Data Nilai Siswa  </p>
+              <p> Nilai Siswa  </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php?content=pembayaran">
+              <i class="material-icons">bubble_chart</i>
+              <p> Ektrukurikuler </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php?content=siswa">
+              <i class="material-icons">person</i>
+              <p> Absen </p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="index.php?content=siswa">
+              <i class="material-icons">person</i>
+              <p> Cetak Rapor </p>
             </a>
           </li>
           <li class="nav-item ">
@@ -67,22 +85,13 @@
               <p> Data Pembayaran Siswa </p>
             </a>
           </li>
-          <!-- <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=pembayaran">
-              <i class="material-icons">bubble_chart</i>
-              <p> Pembayaran </p>
-            </a>
-            <li class="nav-item ">
-            <a class="nav-link" href="index.php?content=siswa">
-              <i class="material-icons">person</i>
-              <p> Management Siswa </p>
-            </a>
-            <li class="nav-item ">
+          
+            <!-- <li class="nav-item ">
             <a class="nav-link" href="index.php?content=mapel">
               <i class="material-icons">library_books</i>
               <p> Mata Pelajaran </p>
-            </a> 
-            <li class="nav-item ">
+            </a>  -->
+            <!-- <li class="nav-item ">
             <a class="nav-link" href="index.php?content=wali">
               <i class="material-icons">person</i>
               <p> Management Wali Kelas </p>
@@ -169,15 +178,14 @@
                                     include 'dashboard.php';
                                 if ($content=='list_siswa')
                                     include 'list_siswa.php';
-                                if ($content=='nilai')
+                                if ($content=='nilai_siswa')
                                     include 'nilai_siswa.php';
                                 if ($content=='detail_siswa')
                                     include 'detail_siswa.php';
-                                
-                                // if ($content=='pembayaran')
-                                //     include 'pembayaran.php';
-                                // if ($content=='siswa')
-                                //    include 'siswa.php';
+                                 if ($content=='klsx')
+                                     include 'klsx.php';
+                                if ($content=='input_nilai')
+                                   include 'input_nilai.php';
                                 // if ($content=='mapel')
                                 //    include 'mapel.php';
                                 // if ($content=='wali')
