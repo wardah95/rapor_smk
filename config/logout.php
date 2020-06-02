@@ -1,20 +1,12 @@
-<?php 
-// mengaktifkan session php
-session_start();
+<?php
 
-// menghapus semua session
-session_destroy();
-
-// mengalihkan halaman ke halaman login
-header("location:index.php");
-?>
-<?php 
-// mengaktifkan session php
 session_start();
- 
-// menghapus semua session
-session_destroy();
- 
-// mengalihkan halaman ke halaman login
-header("location:index.php");
+$out=session_destroy();
+if($out)
+{
+	echo "<br><br><br><br><strong><center><i>Anda berhasil keluar!";
+
+}
 ?>
+
+<META HTTP-EQUIV="REFRESH" CONTENT = '1;url=../index.php'>

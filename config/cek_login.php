@@ -89,8 +89,9 @@ if($cek > 0){
 		// alihkan ke halaman login kembali
 	}	
 }else{
-	echo "ERROR";
-	header("location:index.php?pesan=gagal");
+	
+	echo "<br><br><br><strong><center><i>Maaf Username atau Password yang anda masukkan salah !!! .<br>Silahkan masukkan Username atau Password dengan benar!";
+	echo '<META HTTP-EQUIV="REFRESH" CONTENT = "2; URL=../index.php">';  
 }
  
 ?>
